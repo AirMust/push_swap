@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoil.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: slynell <slynell@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/07/25 13:55:55 by slynell           #+#    #+#             */
+/*   Updated: 2020/07/25 13:56:06 by slynell          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-int	ft_isspace(char c)
+int		ft_isspace(char c)
 {
 	return ((c == '\t' || c == '\n' || c == '\v' ||
 			c == '\f' || c == '\r' || c == ' ') ? 1 : 0);
@@ -8,9 +20,9 @@ int	ft_isspace(char c)
 
 long	ft_atoil(const char *str)
 {
-	int i;
-	long n;
-	int s;
+	int		i;
+	long	n;
+	int		s;
 
 	i = 0;
 	n = 0;

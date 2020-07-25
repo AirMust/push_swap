@@ -1,15 +1,30 @@
-#include "libft.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_check_integer.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: slynell <slynell@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/07/25 13:56:40 by slynell           #+#    #+#             */
+/*   Updated: 2020/07/25 14:35:02 by slynell          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int ft_check_integer(char *str)
+#include "../header/libft.h"
+
+int		ft_check_integer(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	IF_TRUE(ft_strequ(str, "-") || ft_strequ(str, "+"), return (0));
-	IF_TRUE(str[i] == '+' || str[i] == '-', i++);
-	while (IS_DIGIT(str[i]))
+	if (ft_strequ(str, "-") || ft_strequ(str, "+"))
+		return (0);
+	if (str[i] == '+' || str[i] == '-')
 		i++;
-	IF_TRUE(str[i] != 0, return (0));
+	while (str[i] >= '0' && str[i] <= '9')
+		i++;
+	if (str[i] != 0)
+		return (0);
 	i = ft_atoil(str) > INT32_MAX || ft_atoil(str) < INT32_MIN ? 0 : 1;
 	return (i);
 }

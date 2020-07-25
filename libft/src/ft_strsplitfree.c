@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrev.c                                        :+:      :+:    :+:   */
+/*   ft_strsplitfree.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: slynell <slynell@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/17 11:57:26 by slynell           #+#    #+#             */
-/*   Updated: 2020/07/25 14:00:57 by slynell          ###   ########.fr       */
+/*   Created: 2018/09/30 19:38:35 by vbrazhni          #+#    #+#             */
+/*   Updated: 2020/07/25 17:47:55 by slynell          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_strrev(register char *begin, register char *end)
+void	ft_strsplitfree(char ***strsplit)
 {
-	register char	tmp;
+	char	**current;
 
-	while (end > begin)
+	if (strsplit && *strsplit)
 	{
-		tmp = *end;
-		*end-- = *begin;
-		*begin++ = tmp;
+		current = ((*strsplit));
+		while ((*current))
+			free((*(current++)));
+		free((*strsplit));
+		(*strsplit) = NULL;
 	}
 }

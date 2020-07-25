@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: slynell <slynell@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/07/25 13:45:57 by slynell           #+#    #+#             */
+/*   Updated: 2020/07/25 13:51:46 by slynell          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-static int check_n(const char *s)
+static int		check_n(const char *s)
 {
 	int i;
 
@@ -14,10 +26,10 @@ static int check_n(const char *s)
 	return (-1);
 }
 
-static int ft_parsing(char **s, char **line)
+static int		ft_parsing(char **s, char **line)
 {
-	int i;
-	char *tmp;
+	int		i;
+	char	*tmp;
 
 	if ((i = check_n(*s)) == -1)
 		i = ft_strlen(*s);
@@ -28,7 +40,7 @@ static int ft_parsing(char **s, char **line)
 	return (1);
 }
 
-static void ft_strjoin_del(char **s, char *buff)
+static void		ft_strjoin_del(char **s, char *buff)
 {
 	char *tmp;
 
@@ -37,11 +49,11 @@ static void ft_strjoin_del(char **s, char *buff)
 	free(tmp);
 }
 
-int get_next_line(const int fd, char **line)
+int				get_next_line(const int fd, char **line)
 {
-	static char *s[MAX_FD_COUNT];
-	char buffer[BUFF_SIZE_GNL + 1];
-	int ret;
+	static char	*s[MAX_FD_COUNT];
+	char		buffer[BUFF_SIZE_GNL + 1];
+	int			ret;
 
 	if (fd < 0 || !line || fd >= MAX_FD_COUNT)
 		return (-1);
@@ -53,7 +65,7 @@ int get_next_line(const int fd, char **line)
 	{
 		ret = read(fd, buffer, BUFF_SIZE_GNL);
 		if (ret <= 0)
-			break;
+			break ;
 		buffer[ret] = 0;
 		ft_strjoin_del(&s[fd], buffer);
 	}

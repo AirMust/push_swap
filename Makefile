@@ -1,5 +1,16 @@
-NAME = lib_push_swap.a
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: slynell <slynell@student.42.fr>            +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2020/07/25 14:04:51 by slynell           #+#    #+#              #
+#    Updated: 2020/07/25 14:42:21 by slynell          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
+NAME = lib_push_swap.a
 
 CHECKER = checker
 
@@ -22,8 +33,7 @@ SRCS += ft_push_action.c
 SRCS += ft_push_ascent.c
 SRCS += ft_push_basic.c
 SRCS += ft_push_operation.c
-
-# SRCS += push_swap.c
+SRCS += ft_push_print.c
 
 INCS = push_swap.h
 
@@ -77,7 +87,6 @@ fclean: clean
 	@rm -rf $(NAME) 2> tmp.log
 	@rm -rf $(PUSH_SWAP) 2> tmp.log
 	@rm -rf $(CHECKER) 2> tmp.log
-
 
 re: fclean all
 

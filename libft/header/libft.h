@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: air_must <air_must@student.42.fr>          +#+  +:+       +#+        */
+/*   By: slynell <slynell@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/09 19:03:58 by slynell           #+#    #+#             */
-/*   Updated: 2020/07/23 20:08:12 by air_must         ###   ########.fr       */
+/*   Updated: 2020/07/25 17:48:44 by slynell          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 # include <limits.h>
 # include <stdint.h>
 # include <wctype.h>
-
 
 # define BUFF_SIZE_GNL 2
 # define MAX_FD_COUNT 1025
@@ -36,15 +35,18 @@ double				ft_pow(double base, register int_fast16_t power);
 long double			ft_long_pow(long double base, register int_fast16_t power);
 void				ft_assert(int_fast32_t to_check, const char *func,
 					const char *message);
-int32_t				ft_divmod(int32_t dividend, int32_t divisor, int32_t *remainder);
+int32_t				ft_divmod(int32_t dividend, int32_t divisor,
+					int32_t *remainder);
 size_t				ft_intlen(register int32_t n);
 void				ft_memswap(void *mem1, void *mem2, size_t size);
 uint32_t			ft_abs(int32_t n);
 size_t				ft_longlen(register int64_t n);
 int					ft_strany(char const *str, int32_t c);
 void				ft_strrev(register char *begin, register char *end);
-size_t				ft_uitoa_hex(uint32_t value, char *buff, int_fast16_t is_upper);
-size_t				ft_ultoa_hex(uint64_t value, char *buff, int_fast16_t is_upper);
+size_t				ft_uitoa_hex(uint32_t value, char *buff,
+					int_fast16_t is_upper);
+size_t				ft_ultoa_hex(uint64_t value, char *buff,
+					int_fast16_t is_upper);
 size_t				ft_uitoa_dec(uint32_t val, char *buff);
 size_t				ft_uitoa_base(uint32_t value, char *buff, int_fast16_t base,
 					int_fast16_t is_upper);
@@ -52,7 +54,7 @@ size_t				ft_ultoa_base(uint64_t value, char *buff, int_fast16_t base,
 					int_fast16_t is_upper);
 int					get_next_line(const int fd, char **line);
 long				ft_atoil(const char *str);
-int 				ft_check_integer(char *str);
+int					ft_check_integer(char *str);
 void				*ft_memset(void *in, int data, size_t n);
 void				ft_bzero(void *s, size_t n);
 void				*ft_memcpy(void *dest, const void *src, size_t n);
@@ -97,6 +99,7 @@ char				*ft_strsub(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strtrim(char const *str);
 char				**ft_strsplit(char const *s, char c);
+void				ft_strsplitfree(char ***strsplit);
 char				*ft_itoa(int n);
 void				ft_putchar(char c);
 void				ft_putstr(char const *s);
@@ -110,9 +113,9 @@ void				ft_putnbr_fd(int n, int fd);
 /*
 ** Array function
 */
-void ft_array_print(int *array, int length);
-int ft_array_max(int *array, int len);
-int ft_array_min(int *array, int len);
+void				ft_array_print(int *array, int length);
+int					ft_array_max(int *array, int len);
+int					ft_array_min(int *array, int len);
 /*
 ** List function
 */

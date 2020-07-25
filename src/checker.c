@@ -1,9 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checker.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: slynell <slynell@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/07/25 14:36:47 by slynell           #+#    #+#             */
+/*   Updated: 2020/07/25 17:51:43 by slynell          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../header/push_swap.h"
 
-int to_go_instr(char *instr, t_ps *ps)
+int	to_go_instr(char *instr, t_ps *ps)
 {
-
 	if (ft_strequ(instr, "sa"))
 		ft_push_s(ps, 'a');
 	else if (ft_strequ(instr, "sb"))
@@ -27,11 +37,11 @@ int to_go_instr(char *instr, t_ps *ps)
 	else if (ft_strequ(instr, "rrr"))
 		ft_push_rr_(ps);
 	else
-		return ft_push_exit("Error", ps);
+		return (ft_push_exit("Error", ps));
 	return (1);
 }
 
-int parse_instr(t_ps *ps)
+int	parse_instr(t_ps *ps)
 {
 	char *instr;
 
@@ -49,13 +59,16 @@ int parse_instr(t_ps *ps)
 	return (1);
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
-	t_ps ps;
+	t_ps *ps;
 
-	ft_push_init(&ps, ac);
-	IF_TRUE(ft_push_read(&ps, ac, av) == 1, return (ft_push_exit("Error\n", &ps)));
-	ps.option = 100;
-	IF_TRUE(parse_instr(&ps) == 0, return (0));
-	return (ft_push_check(&ps) == 1 && ps.lenB == 0 ? ft_push_exit("OK", &ps) : ft_push_exit("KO", &ps));
+	ps = ft_push_init(ac);
+	if (ft_push_read(ps, av) == 1)
+		return (ft_push_exit("Error\n", ps));
+	ps->option = 100;
+	if (parse_instr(ps) == 0)
+		return (0);
+	return (ft_push_check(ps) == 1 && ps->b_len == 0
+	? ft_push_exit("OK", ps) : ft_push_exit("KO", ps));
 }

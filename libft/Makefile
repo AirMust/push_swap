@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: air_must <air_must@student.42.fr>          +#+  +:+       +#+         #
+#    By: slynell <slynell@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/14 11:23:23 by slynell           #+#    #+#              #
-#    Updated: 2020/07/23 20:26:52 by air_must         ###   ########.fr        #
+#    Updated: 2020/07/25 17:47:27 by slynell          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,6 +42,7 @@ SRC += ft_memchr.c
 SRC += ft_putnbr_fd.c
 SRC += ft_striteri.c
 SRC += ft_strsplit.c
+SRC += ft_strsplitfree.c
 SRC += ft_isalnum.c
 SRC += ft_memcmp.c
 SRC += ft_putstr.c
