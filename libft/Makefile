@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: slynell <slynell@student.42.fr>            +#+  +:+       +#+         #
+#    By: air_must <air_must@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/14 11:23:23 by slynell           #+#    #+#              #
-#    Updated: 2020/07/25 17:47:27 by slynell          ###   ########.fr        #
+#    Updated: 2020/07/25 22:29:37 by air_must         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ HEAD = libft.h
 HEAD += macros.h
 
 SRC = ft_check_integer.c
-SRC += ft_atoil.c
+SRC += ft_atoill.c
 SRC += get_next_line.c
 SRC += ft_lstnew.c
 SRC += ft_putendl_fd.c
@@ -41,6 +41,7 @@ SRC += ft_bzero.c
 SRC += ft_memchr.c
 SRC += ft_putnbr_fd.c
 SRC += ft_striteri.c
+SRC	+= ft_countwords.c
 SRC += ft_strsplit.c
 SRC += ft_strsplitfree.c
 SRC += ft_isalnum.c

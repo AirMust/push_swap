@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_integer.c                                 :+:      :+:    :+:   */
+/*   ft_countwords.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: air_must <air_must@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/25 13:56:40 by slynell           #+#    #+#             */
-/*   Updated: 2020/07/25 22:37:27 by air_must         ###   ########.fr       */
+/*   Created: 2015/12/02 17:33:40 by pbondoer          #+#    #+#             */
+/*   Updated: 2020/07/25 22:13:02 by air_must         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header/libft.h"
+#include "string.h"
 
-int		ft_check_integer(char *str)
+int		ft_countwords(char *str, char sep)
 {
-	int	i;
+	int result;
+	int i;
 
 	i = 0;
-	if (ft_strequ(str, "-") || ft_strequ(str, "+"))
-		return (0);
-	if (str[i] == '+' || str[i] == '-')
+	result = 0;
+	while (str[i] && str[i] == sep)
 		i++;
-	while (str[i] >= '0' && str[i] <= '9')
-		i++;
-	if (str[i] != 0)
-		return (0);
-	i = ft_atoill(str) > INT32_MAX || ft_atoill(str) < INT32_MIN ? 0 : 1;
-	return (i);
+	while (str[i])
+	{
+		while (str[i] && str[i] != sep)
+			i++;
+		result++;
+		while (str[i] && str[i] == sep)
+			i++;
+	}
+	return (result);
 }

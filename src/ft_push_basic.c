@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_push_basic.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: slynell <slynell@student.42.fr>            +#+  +:+       +#+        */
+/*   By: air_must <air_must@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/25 14:10:38 by slynell           #+#    #+#             */
-/*   Updated: 2020/07/25 18:18:30 by slynell          ###   ########.fr       */
+/*   Updated: 2020/07/25 22:14:40 by air_must         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/push_swap.h"
 
-int		ft_push_exit(char *str, t_ps *ps)
+int ft_push_exit(char *str, t_ps *ps)
 {
 	if (*str)
 	{
@@ -25,10 +25,10 @@ int		ft_push_exit(char *str, t_ps *ps)
 	return (0);
 }
 
-int		ft_push_check3(t_ps *ps)
+int ft_push_check3(t_ps *ps)
 {
-	int	i;
-	int	s;
+	int i;
+	int s;
 
 	i = -1;
 	s = 0;
@@ -40,7 +40,7 @@ int		ft_push_check3(t_ps *ps)
 	return (s > 1 ? 0 : 1);
 }
 
-t_ps	*ft_push_init(int length)
+t_ps *ft_push_init(int length)
 {
 	t_ps *ps;
 
@@ -54,7 +54,7 @@ t_ps	*ft_push_init(int length)
 	return (ps);
 }
 
-int		ft_push_read_int(t_ps *ps, char *str)
+int ft_push_read_int(t_ps *ps, char *str)
 {
 	int k;
 
@@ -71,11 +71,11 @@ int		ft_push_read_int(t_ps *ps, char *str)
 	return (0);
 }
 
-int		ft_push_read(t_ps *ps, char **av)
+int ft_push_read(t_ps *ps, char **av)
 {
-	int		i;
-	int		j;
-	char	**actor;
+	int i;
+	int j;
+	char **actor;
 
 	j = 0;
 	while (av[++j])

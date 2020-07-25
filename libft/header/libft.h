@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: slynell <slynell@student.42.fr>            +#+  +:+       +#+        */
+/*   By: air_must <air_must@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/09 19:03:58 by slynell           #+#    #+#             */
-/*   Updated: 2020/07/25 17:48:44 by slynell          ###   ########.fr       */
+/*   Updated: 2020/07/25 22:35:48 by air_must         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <string.h>
 # include <stdlib.h>
+# include <stdio.h>
 # include "macros.h"
 # include <limits.h>
 # include <stdint.h>
@@ -53,7 +54,7 @@ size_t				ft_uitoa_base(uint32_t value, char *buff, int_fast16_t base,
 size_t				ft_ultoa_base(uint64_t value, char *buff, int_fast16_t base,
 					int_fast16_t is_upper);
 int					get_next_line(const int fd, char **line);
-long				ft_atoil(const char *str);
+long long			ft_atoill(const char *str);
 int					ft_check_integer(char *str);
 void				*ft_memset(void *in, int data, size_t n);
 void				ft_bzero(void *s, size_t n);
@@ -98,6 +99,7 @@ int					ft_strnequ(char const *s1, char const *s2, size_t n);
 char				*ft_strsub(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strtrim(char const *str);
+int					ft_countwords(char *str, char sep);
 char				**ft_strsplit(char const *s, char c);
 void				ft_strsplitfree(char ***strsplit);
 char				*ft_itoa(int n);
