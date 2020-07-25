@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: slynell <slynell@student.42.fr>            +#+  +:+       +#+        */
+/*   By: air_must <air_must@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/25 14:22:06 by slynell           #+#    #+#             */
-/*   Updated: 2020/07/25 17:36:42 by slynell          ###   ########.fr       */
+/*   Updated: 2020/07/25 23:06:54 by air_must         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,9 @@ typedef struct	s_ps
 ** Push swap basic function
 */
 t_ps			*ft_push_init(int length);
-int				ft_push_read(t_ps *ps, char **av);
+void			ft_push_free(t_ps *ps);
+int				ft_push_read(t_ps *ps, char **av, int ac);
+int				ft_push_read_count(t_ps *ps, char **av, int ac);
 void			ft_push_print(char *str, char flag, t_ps *ps);
 int				ft_push_exit(char *str, t_ps *ps);
 int				ft_push_check3(t_ps *ps);

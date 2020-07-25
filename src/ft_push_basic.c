@@ -6,26 +6,31 @@
 /*   By: air_must <air_must@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/25 14:10:38 by slynell           #+#    #+#             */
-/*   Updated: 2020/07/25 22:14:40 by air_must         ###   ########.fr       */
+/*   Updated: 2020/07/25 22:59:43 by air_must         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/push_swap.h"
 
-int ft_push_exit(char *str, t_ps *ps)
+int		ft_push_exit(char *str, t_ps *ps)
 {
 	if (*str)
 	{
 		ft_putstr(str);
 	}
+	ft_push_free(ps);
+	return (0);
+}
+
+void	ft_push_free(t_ps *ps)
+{
 	free(ps->a);
 	free(ps->b);
 	free(ps);
 	ps = NULL;
-	return (0);
 }
 
-int ft_push_check3(t_ps *ps)
+int		ft_push_check3(t_ps *ps)
 {
 	int i;
 	int s;
@@ -40,57 +45,24 @@ int ft_push_check3(t_ps *ps)
 	return (s > 1 ? 0 : 1);
 }
 
-t_ps *ft_push_init(int length)
+t_ps	*ft_push_init(int length)
 {
 	t_ps *ps;
 
 	ps = (t_ps *)malloc(sizeof(t_ps) * 1);
-	ps->a = (int *)malloc(sizeof(int) * (length - 1 + 1000));
-	ps->b = (int *)malloc(sizeof(int) * (length - 1 + 1000));
+	if (length != -1)
+	{
+		ps->a = (int *)malloc(sizeof(int) * (length + 100));
+		ps->b = (int *)malloc(sizeof(int) * (length + 100));
+	}
+	else
+	{
+		ps->a = (int *)malloc(sizeof(int) * (1));
+		ps->b = (int *)malloc(sizeof(int) * (1));
+	}
 	ps->a_len = 0;
 	ps->b_len = 0;
 	ps->count = 0;
 	ps->option = 0;
 	return (ps);
-}
-
-int ft_push_read_int(t_ps *ps, char *str)
-{
-	int k;
-
-	if (ft_strequ(str, "-v") == 0 && ft_strequ(str, "-c") == 0)
-	{
-		if (ft_check_integer(str) == 0)
-			return (1);
-		k = -1;
-		while (++k < ps->a_len)
-			if (ps->a[k] == ft_atoi(str))
-				return (1);
-		ps->a[ps->a_len++] = ft_atoi(str);
-	}
-	return (0);
-}
-
-int ft_push_read(t_ps *ps, char **av)
-{
-	int i;
-	int j;
-	char **actor;
-
-	j = 0;
-	while (av[++j])
-	{
-		actor = ft_strsplit(av[j], ' ');
-		i = -1;
-		while (actor[++i])
-		{
-			ps->option += ft_strequ(actor[i], "-v") ? 1 : 0;
-			ps->option += ft_strequ(actor[i], "-c") ? 2 : 0;
-			ps->b[ps->a_len] = 0;
-			if (ft_push_read_int(ps, actor[i]))
-				return (1);
-		}
-		ft_strsplitfree(&actor);
-	}
-	return (0);
 }

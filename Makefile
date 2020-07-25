@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: slynell <slynell@student.42.fr>            +#+  +:+       +#+         #
+#    By: air_must <air_must@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/25 14:04:51 by slynell           #+#    #+#              #
-#    Updated: 2020/07/25 14:42:21 by slynell          ###   ########.fr        #
+#    Updated: 2020/07/25 22:58:00 by air_must         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ SRCS += ft_push_ascent.c
 SRCS += ft_push_basic.c
 SRCS += ft_push_operation.c
 SRCS += ft_push_print.c
-
+SRCS += ft_push_read.c
 INCS = push_swap.h
 
 SRC_CHECKER = src/checker.c
