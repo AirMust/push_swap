@@ -6,7 +6,7 @@
 /*   By: air_must <air_must@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/25 14:10:38 by slynell           #+#    #+#             */
-/*   Updated: 2020/07/25 22:59:43 by air_must         ###   ########.fr       */
+/*   Updated: 2020/07/25 23:22:13 by air_must         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int		ft_push_check3(t_ps *ps)
 
 t_ps	*ft_push_init(int length)
 {
-	t_ps *ps;
+	t_ps	*ps;
 
 	ps = (t_ps *)malloc(sizeof(t_ps) * 1);
 	if (length != -1)

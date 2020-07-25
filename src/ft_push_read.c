@@ -20,9 +20,9 @@ int ft_push_read_int(t_ps *ps, char *str)
 
 int ft_push_read(t_ps *ps, char **av, int ac)
 {
-	int i;
-	int j;
-	char **actor;
+	int		i;
+	int		j;
+	char	**actor;
 
 	j = 0;
 	while (ac > 1 && av[++j])
@@ -56,9 +56,9 @@ int ft_push_read_count_int(t_ps *ps, char *str)
 
 int ft_push_read_count(t_ps *ps, char **av, int ac)
 {
-	int i;
-	int j;
-	char **actor;
+	int		i;
+	int		j;
+	char	**actor;
 
 	j = 0;
 	while (ac > 1 && av[++j])
