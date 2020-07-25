@@ -6,7 +6,7 @@
 /*   By: slynell <slynell@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/25 14:26:16 by slynell           #+#    #+#             */
-/*   Updated: 2020/07/25 17:35:40 by slynell          ###   ########.fr       */
+/*   Updated: 2020/07/25 18:29:50 by slynell          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,10 @@ void	ft_sort_ps(int chank, int temp_chank, int ichank, t_ps *ps)
 
 	if (ft_push_check(ps))
 		return ;
-	while (++ichank <= chank)
+	chank = 0;
+	while (ps->a_len)
 	{
+		ichank++;
 		l = 1;
 		while (l != -1)
 		{

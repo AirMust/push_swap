@@ -6,7 +6,7 @@
 /*   By: slynell <slynell@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/25 14:10:38 by slynell           #+#    #+#             */
-/*   Updated: 2020/07/25 17:48:40 by slynell          ###   ########.fr       */
+/*   Updated: 2020/07/25 18:18:30 by slynell          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ t_ps	*ft_push_init(int length)
 	t_ps *ps;
 
 	ps = (t_ps *)malloc(sizeof(t_ps) * 1);
-	ps->a = (int *)malloc(sizeof(int) * (length - 1 + 20));
-	ps->b = (int *)malloc(sizeof(int) * (length - 1 + 20));
+	ps->a = (int *)malloc(sizeof(int) * (length - 1 + 1000));
+	ps->b = (int *)malloc(sizeof(int) * (length - 1 + 1000));
 	ps->a_len = 0;
 	ps->b_len = 0;
 	ps->count = 0;
