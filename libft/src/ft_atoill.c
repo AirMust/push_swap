@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoill.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: air_must <air_must@student.42.fr>          +#+  +:+       +#+        */
+/*   By: slynell <slynell@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/25 13:55:55 by slynell           #+#    #+#             */
-/*   Updated: 2020/07/25 22:36:38 by air_must         ###   ########.fr       */
+/*   Updated: 2020/07/26 13:47:48 by slynell          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_isspace(char c)
+int			ft_isspace(char c)
 {
 	return ((c == '\t' || c == '\n' || c == '\v' ||
 			c == '\f' || c == '\r' || c == ' ') ? 1 : 0);
@@ -40,7 +40,7 @@ long long	ft_atoill(const char *str)
 	{
 		n = n * 10 + str[i] - '0';
 		i++;
-		if(i - mn > 11)
+		if (i - mn > 11)
 			return (2147483648);
 	}
 	return (n * s);

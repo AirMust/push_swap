@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: air_must <air_must@student.42.fr>          +#+  +:+       +#+         #
+#    By: slynell <slynell@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/25 14:04:51 by slynell           #+#    #+#              #
-#    Updated: 2020/07/25 22:58:00 by air_must         ###   ########.fr        #
+#    Updated: 2020/07/27 15:46:06 by slynell          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -89,95 +89,3 @@ fclean: clean
 	@rm -rf $(CHECKER) 2> tmp.log
 
 re: fclean all
-
-
-
-
-
-# NAME = lib_push_swap.a
-
-
-# CHECKER = checker
-
-# PUSH_SWAP = push_swap
-
-# CC = gcc
-
-# FLAGS = -Wall -Werror -Wextra -O2
-
-# SDIR = src
-
-# ODIR = obj
-
-# IDIR = header
-
-# LDIR = libft
-
-# SRCS = ft_push_action2.c
-# SRCS += ft_push_action.c
-# SRCS += ft_push_ascent.c
-# SRCS += ft_push_basic.c
-# SRCS += ft_push_operation.c
-
-# # SRCS += push_swap.c
-
-# INCS = push_swap.h
-
-# SRC_CHECKER = src/checker.c
-# SRC_PUSH_SWAP =	src/push_swap.c
-
-# INCS += $(addprefix $(LDIR)/,$(addprefix $(IDIR)/,$(libft.h)))
-
-# SOURCES = $(addprefix $(SDIR)/,$(SRCS))
-
-# OBJECTS = $(addprefix $(ODIR)/,$(SRCS:.c=.o))
-
-# INCLUDES = $(addprefix $(IDIR)/,$(INCS))
-
-# LIBFT = $(addprefix $(LDIR)/,libft.a)
-
-
-# .PHONY: clean fclean all re
-
-# all : print $(LIBFT) $(NAME)
-# 	@make -C $(LDIR) 2> tmp.log
-# 	@@echo "Project $(PUSH_SWAP) and $(CHECKER) build successfully" >> tmp.log
-# 	@2> tmp.log
-# 	@echo "Project $(PUSH_SWAP) and $(CHECKER) build successfully" >> tmp.log
-
-# print:
-# 	@echo "Make $(PUSH_SWAP) and $(CHECKER)"
-
-# $(LIBFT) :
-# 	@make -C $(LDIR) 2> tmp.log
-
-# $(NAME) : $(OBJECTS) $(INCLUDES) $(LIBFT) Makefile
-
-# 	@echo "Create $(PUSH_SWAP)"
-# 	@$(CC) $(FLAGS) -o $(PUSH_SWAP) $(OBJECTS) $(SRC_PUSH_SWAP) -I $(IDIR) $(LIBFT)
-# 	@echo "\033[32m[OK]\033[0m"
-# 	@echo "Create $(CHECKER)"
-# 	@$(CC) $(FLAGS) -o $(CHECKER) $(OBJECTS) $(SRC_CHECKER) -I $(IDIR) $(LIBFT)
-# 	@echo "\033[32m[OK]\033[0m"
-
-# $(ODIR)/%.o : $(SDIR)/%.c $(INCLUDES) Makefile
-# 	@mkdir -p $(ODIR) 2> tmp.log
-# 	@echo "Start compile file: $<..."
-# 	@$(CC) $(FLAGS) -I $(IDIR) -c $< -o $@ 2> tmp.log
-# 	@echo "\033[32m[OK]\033[0m"
-
-# clean:
-# 	@make clean -C $(LDIR) 2> tmp.log
-# 	@rm -rf $(OBJS) 2> tmp.log
-# 	@rm -rf $(ODIR) 2> tmp.log
-
-# fclean: clean
-# 	@make fclean -C $(LDIR) 2> tmp.log
-# 	@rm -rf $(NAME) 2> tmp.log
-# 	@rm -rf $(PUSH_SWAP) 2> tmp.log
-# 	@rm -rf $(CHECKER) 2> tmp.log
-
-
-# re: fclean all
-
-

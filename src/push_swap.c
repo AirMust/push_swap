@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: air_must <air_must@student.42.fr>          +#+  +:+       +#+        */
+/*   By: slynell <slynell@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/25 14:26:16 by slynell           #+#    #+#             */
-/*   Updated: 2020/07/25 23:05:47 by air_must         ###   ########.fr       */
+/*   Updated: 2020/07/26 13:52:23 by slynell          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,14 +56,13 @@ void	ft_sort_ps_40(t_ps *ps)
 		}
 }
 
-void	ft_sort_ps(int chank, int temp_chank, int ichank, t_ps *ps)
+void	ft_sort_ps(int temp_chank, int ichank, t_ps *ps)
 {
 	int l;
 	int i;
 
 	if (ft_push_check(ps))
 		return ;
-	chank = 0;
 	while (ps->a_len)
 	{
 		ichank++;
@@ -110,7 +109,7 @@ int		main(int ac, char **av)
 		chank = (ps->a_len) > 200 ? 11 : 5;
 		i = (ft_array_max(ps->a, ps->a_len) -
 		ft_array_min(ps->a, ps->a_len)) / chank;
-		ft_sort_ps(chank, i, 0, ps);
+		ft_sort_ps(i, 0, ps);
 	}
 	return (ft_push_exit("", ps));
 }

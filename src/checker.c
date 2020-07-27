@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: air_must <air_must@student.42.fr>          +#+  +:+       +#+        */
+/*   By: slynell <slynell@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/25 14:36:47 by slynell           #+#    #+#             */
-/*   Updated: 2020/07/25 23:07:07 by air_must         ###   ########.fr       */
+/*   Updated: 2020/07/27 15:50:53 by slynell          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ int	main(int ac, char **av)
 	if (ft_push_read_count(ps, av, ac) == 1)
 		return (ft_push_exit("Error\n", ps));
 	length = ps->a_len;
+	if (length == 0)
+		return (ft_push_exit("", ps));
 	ft_push_free(ps);
 	ps = ft_push_init(length);
 	if (ft_push_read(ps, av, ac) == 1)

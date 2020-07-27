@@ -1,7 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_push_read.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: slynell <slynell@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/07/26 13:46:39 by slynell           #+#    #+#             */
+/*   Updated: 2020/07/26 13:53:28 by slynell          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../header/push_swap.h"
 
-
-int ft_push_read_int(t_ps *ps, char *str)
+int		ft_push_read_int(t_ps *ps, char *str)
 {
 	int k;
 
@@ -18,7 +29,7 @@ int ft_push_read_int(t_ps *ps, char *str)
 	return (0);
 }
 
-int ft_push_read(t_ps *ps, char **av, int ac)
+int		ft_push_read(t_ps *ps, char **av, int ac)
 {
 	int		i;
 	int		j;
@@ -42,8 +53,7 @@ int ft_push_read(t_ps *ps, char **av, int ac)
 	return (0);
 }
 
-
-int ft_push_read_count_int(t_ps *ps, char *str)
+int		ft_push_read_count_int(t_ps *ps, char *str)
 {
 	if (ft_strequ(str, "-v") == 0 && ft_strequ(str, "-c") == 0)
 	{
@@ -54,7 +64,7 @@ int ft_push_read_count_int(t_ps *ps, char *str)
 	return (0);
 }
 
-int ft_push_read_count(t_ps *ps, char **av, int ac)
+int		ft_push_read_count(t_ps *ps, char **av, int ac)
 {
 	int		i;
 	int		j;
