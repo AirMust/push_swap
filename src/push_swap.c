@@ -6,7 +6,7 @@
 /*   By: slynell <slynell@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/25 14:26:16 by slynell           #+#    #+#             */
-/*   Updated: 2020/07/26 13:52:23 by slynell          ###   ########.fr       */
+/*   Updated: 2020/08/06 12:46:46 by slynell          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,7 @@ int		main(int ac, char **av)
 	int		length;
 
 	ps = ft_push_init(-1);
+	ft_push_read_count(ps, av, ac);
 	if (ft_push_read_count(ps, av, ac) == 1)
 		return (ft_push_exit("Error\n", ps));
 	length = ps->a_len;
@@ -100,11 +101,9 @@ int		main(int ac, char **av)
 	ps = ft_push_init(length);
 	if (ft_push_read(ps, av, ac) == 1)
 		return (ft_push_exit("Error\n", ps));
-	if (ps->a_len <= 3)
-		ft_sort_ps_3(ps);
-	else if (ps->a_len <= 40)
-		ft_sort_ps_40(ps);
-	else
+	IF_TRUE(ps->a_len <= 3, ft_sort_ps_3(ps));
+	IF_TRUE(ps->a_len <= 40, ft_sort_ps_40(ps));
+	if (ps->a_len > 40)
 	{
 		chank = (ps->a_len) > 200 ? 11 : 5;
 		i = (ft_array_max(ps->a, ps->a_len) -

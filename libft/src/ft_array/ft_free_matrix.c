@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsub.c                                        :+:      :+:    :+:   */
+/*   ft_free_matrix.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: slynell <slynell@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/14 15:19:50 by slynell           #+#    #+#             */
-/*   Updated: 2020/08/06 13:38:01 by slynell          ###   ########.fr       */
+/*   Created: 2020/02/17 11:15:36 by slynell           #+#    #+#             */
+/*   Updated: 2020/08/03 13:54:47 by slynell          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char				*ft_strsub(char const *s, unsigned int start, size_t len)
+void	ft_free_matrix_char(char ***matrix, int count_row)
 {
-	char			*sub;
-	size_t			i;
+	int i;
 
-	sub = ft_strnew(len);
-	if (sub == NULL)
-		return (NULL);
-	i = 0;
-	while (s[i + start] != 0 && i < len)
-	{
-		sub[i] = s[i + start];
-		i++;
-	}
-	sub[i] = 0;
-	return (sub);
+	i = -1;
+	while (++i < count_row)
+		free((*matrix)[i]);
+	free(*matrix);
+	*matrix = NULL;
+}
+
+void	ft_free_matrix_int(int ***matrix, int count_row)
+{
+	int i;
+
+	i = -1;
+	while (++i < count_row)
+		free((*matrix)[i]);
+	free(*matrix);
+	*matrix = NULL;
 }

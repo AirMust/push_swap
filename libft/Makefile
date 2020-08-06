@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: air_must <air_must@student.42.fr>          +#+  +:+       +#+         #
+#    By: slynell <slynell@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/14 11:23:23 by slynell           #+#    #+#              #
-#    Updated: 2020/07/25 22:29:37 by air_must         ###   ########.fr        #
+#    Updated: 2020/08/06 12:56:45 by slynell          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,9 @@ HDIR = header
 
 HEAD = libft.h
 HEAD += macros.h
+HEAD += ft_printf.h
+HEAD += ft_printf_const_data.h
+HEAD += ft_printf_errors.h
 
 SRC = ft_check_integer.c
 SRC += ft_atoill.c
@@ -48,6 +51,7 @@ SRC += ft_isalnum.c
 SRC += ft_memcmp.c
 SRC += ft_putstr.c
 SRC += ft_strjoin.c
+SRC += ft_strnjoin.c
 SRC += ft_strstr.c
 SRC += ft_isalpha.c
 SRC += ft_memcpy.c
@@ -85,6 +89,7 @@ SRC += ft_strncpy.c
 SRC += ft_lstlink.c
 SRC += ft_putendl.c
 SRC += ft_strdup.c
+SRC += ft_strndup.c
 SRC += ft_strnew.c
 SRC += ft_lstaddcontent.c
 SRC += ft_lstdel.c
@@ -111,13 +116,47 @@ SRC += ft_ultoa_base.c
 SRC += ft_ultoa_hex.c
 SRC += ft_wstrlen.c
 
-SRC += ft_array_min.c
-SRC += ft_array_max.c
-SRC += ft_array_print.c
-
 SOURCES = $(addprefix $(SDIR)/,$(SRC))
-
 OBJECTS = $(addprefix $(ODIR)/,$(SRC:.c=.o))
+
+# /*
+# ** ====================== SOURCE ARRAY ==========================
+# */
+
+SDIR_ARRAY = src/ft_array
+ODIR_ARRAY = obj/ft_array
+
+SRC_ARRAY = ft_array_min.c
+SRC_ARRAY += ft_array_max.c
+SRC_ARRAY += ft_array_print.c
+SRC_ARRAY += ft_free_matrix.c
+
+SOURCES_ARRAY = $(addprefix $(SDIR_ARRAY)/,$(SRC_ARRAY))
+OBJECTS_ARRAY = $(addprefix $(ODIR_ARRAY)/,$(SRC_ARRAY:.c=.o))
+
+# /*
+# ** ====================== SOURCE PRINTF ==========================
+# */
+
+SDIR_PRINTF = src/ft_printf
+ODIR_PRINTF = obj/ft_printf
+
+SRC_PRINTF = buffer_n_print.c
+SRC_PRINTF += float_processing.c
+SRC_PRINTF += float_processing_ag.c
+SRC_PRINTF += float_processing_ef.c
+SRC_PRINTF += float_processing_fast_dtoa.c
+SRC_PRINTF += float_processing_fast_ldtoa.c
+SRC_PRINTF += float_processing_fxd_dbl.c
+SRC_PRINTF += ft_printf.c
+SRC_PRINTF += ft_printf_utils.c
+SRC_PRINTF += get_format_arg.c
+SRC_PRINTF += number_processing.c
+SRC_PRINTF += string_processing.c
+
+SOURCES_PRINTF = $(addprefix $(SDIR_PRINTF)/,$(SRC_PRINTF))
+OBJECTS_PRINTF = $(addprefix $(ODIR_PRINTF)/,$(SRC_PRINTF:.c=.o))
+
 
 HEADERS = $(addprefix $(HDIR)/,$(HEAD))
 
@@ -128,20 +167,30 @@ all : print $(NAME)
 	@@echo "Project $(NAME) build successfully \c" >> tmp.log
 	@echo "\nProject $(NAME) build successfully \033[32m[OK]\033[0m"
 
-$(NAME) : $(OBJECTS) $(HEADERS) Makefile
+$(NAME) : $(OBJECTS) $(OBJECTS_PRINTF) $(OBJECTS_ARRAY) $(HEADERS) Makefile
 	@ar rc $(NAME) $? 2> tmp.log
 	@ranlib $(NAME) 2> tmp.log
 
 print:
 	@echo "\nMake \033[33m$(NAME)\033[0m\c"
 
+$(ODIR_ARRAY)/%.o : $(SDIR_ARRAY)/%.c $(HEADERS) Makefile
+	@mkdir -p $(ODIR_ARRAY) 2> tmp.log
+	@$(CC) $(FLAGS) -I $(HDIR) -c $< -o $@ 2> tmp.log
+	@echo "\033[32m.\033[0m\c"
+
+$(ODIR_PRINTF)/%.o : $(SDIR_PRINTF)/%.c $(HEADERS) Makefile
+	@mkdir -p $(ODIR_PRINTF) 2> tmp.log
+	@$(CC) $(FLAGS) -I $(HDIR) -c $< -o $@ 2> tmp.log
+	@echo "\033[32m.\033[0m\c"
+
 $(ODIR)/%.o : $(SDIR)/%.c $(HEADERS) Makefile
 	@mkdir -p $(ODIR) 2> tmp.log
 	@$(CC) $(FLAGS) -I $(HDIR) -c $< -o $@ 2> tmp.log
 	@echo "\033[32m.\033[0m\c"
 
+
 clean:
-	@rm -f $(OBJECTS) 2> tmp.log
 	@rm -rf $(ODIR) 2> tmp.log
 
 fclean: clean

@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsub.c                                        :+:      :+:    :+:   */
+/*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: slynell <slynell@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/14 15:19:50 by slynell           #+#    #+#             */
-/*   Updated: 2020/08/06 13:38:01 by slynell          ###   ########.fr       */
+/*   Created: 2015/12/31 00:36:47 by smrabet           #+#    #+#             */
+/*   Updated: 2020/08/06 12:55:51 by slynell          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char				*ft_strsub(char const *s, unsigned int start, size_t len)
+char	*ft_strndup(const char *s, size_t len)
 {
-	char			*sub;
-	size_t			i;
+	char	*dest;
+	size_t	i;
 
-	sub = ft_strnew(len);
-	if (sub == NULL)
-		return (NULL);
 	i = 0;
-	while (s[i + start] != 0 && i < len)
+	dest = (char *)malloc(sizeof(char) * len + 1);
+	if (dest == NULL)
+		return (NULL);
+	while (s[i] && i < len)
 	{
-		sub[i] = s[i + start];
+		dest[i] = s[i];
 		i++;
 	}
-	sub[i] = 0;
-	return (sub);
+	dest[i] = '\0';
+	return (dest);
 }

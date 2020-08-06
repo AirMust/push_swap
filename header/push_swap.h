@@ -6,7 +6,7 @@
 /*   By: slynell <slynell@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/25 14:22:06 by slynell           #+#    #+#             */
-/*   Updated: 2020/07/26 13:48:35 by slynell          ###   ########.fr       */
+/*   Updated: 2020/08/04 19:55:01 by slynell          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct	s_ps
 	int			b_len;
 	int			option;
 	int			count;
+	int			is_time;
 }				t_ps;
 
 /*

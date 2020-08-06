@@ -6,7 +6,7 @@
 /*   By: slynell <slynell@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/25 14:36:47 by slynell           #+#    #+#             */
-/*   Updated: 2020/07/27 15:50:53 by slynell          ###   ########.fr       */
+/*   Updated: 2020/08/06 13:36:17 by slynell          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,26 +37,25 @@ int	to_go_instr(char *instr, t_ps *ps)
 	else if (ft_strequ(instr, "rrr"))
 		ft_push_rr_(ps);
 	else
-		return (ft_push_exit("Error", ps));
+		return (0);
 	return (1);
 }
 
 int	parse_instr(t_ps *ps)
 {
-	char *instr;
+	char	*instr;
+	int		temp;
 
+	temp = 1;
 	while (get_next_line(0, &instr) > 0)
 	{
-		if (to_go_instr(instr, ps) == 0)
-		{
-			free(instr);
-			return (0);
-		}
-		free(instr);
+		temp = to_go_instr(instr, ps);
+		if (temp == 0)
+			break ;
+		ft_strdel(&instr);
 	}
-	if (instr && *instr)
-		free(instr);
-	return (1);
+	ft_strdel(&instr);
+	return (temp);
 }
 
 int	main(int ac, char **av)
@@ -76,7 +75,7 @@ int	main(int ac, char **av)
 		return (ft_push_exit("Error\n", ps));
 	ps->option = 100;
 	if (parse_instr(ps) == 0)
-		return (0);
+		return (ft_push_exit("Error\n", ps));
 	return (ft_push_check(ps) == 1 && ps->b_len == 0
 	? ft_push_exit("OK", ps) : ft_push_exit("KO", ps));
 }

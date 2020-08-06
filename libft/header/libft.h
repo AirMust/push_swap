@@ -6,7 +6,7 @@
 /*   By: slynell <slynell@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/09 19:03:58 by slynell           #+#    #+#             */
-/*   Updated: 2020/07/26 13:48:01 by slynell          ###   ########.fr       */
+/*   Updated: 2020/08/06 13:32:59 by slynell          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,12 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include "macros.h"
+# include "ft_printf.h"
 # include <limits.h>
 # include <stdint.h>
 # include <wctype.h>
 
-# define BUFF_SIZE_GNL 2
+# define BUFF_SIZE_GNL 4
 # define MAX_FD_COUNT 1025
 
 /*
@@ -65,6 +66,7 @@ void				*ft_memchr(const void *src, int c, size_t len);
 int					ft_memcmp(const void *s1, const void *s2, size_t len);
 size_t				ft_strlen(const char *str);
 char				*ft_strdup(const char *str);
+char				*ft_strndup(const char *s, size_t len);
 char				*ft_strcpy(char *dest, const char *src);
 char				*ft_strncpy(char *dest, const char *src, size_t n);
 char				*ft_strcat(char *dest, const char *src);
@@ -98,6 +100,7 @@ int					ft_strequ(char const *s1, char const *s2);
 int					ft_strnequ(char const *s1, char const *s2, size_t n);
 char				*ft_strsub(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin(char const *s1, char const *s2);
+char				*ft_strnjoin(char const *s1, char const *s2, size_t len);
 char				*ft_strtrim(char const *str);
 int					ft_countwords(char *str, char sep);
 char				**ft_strsplit(char const *s, char c);
@@ -118,6 +121,8 @@ void				ft_putnbr_fd(int n, int fd);
 void				ft_array_print(int *array, int length);
 int					ft_array_max(int *array, int len);
 int					ft_array_min(int *array, int len);
+void				ft_free_matrix_char(char ***matrix, int count_row);
+void				ft_free_matrix_int(int ***matrix, int count_row);
 /*
 ** List function
 */

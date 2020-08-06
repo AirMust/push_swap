@@ -6,7 +6,7 @@
 /*   By: slynell <slynell@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/25 14:10:38 by slynell           #+#    #+#             */
-/*   Updated: 2020/07/26 13:48:50 by slynell          ###   ########.fr       */
+/*   Updated: 2020/08/04 19:55:31 by slynell          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,6 @@ t_ps	*ft_push_init(int length)
 	ps->b_len = 0;
 	ps->count = 0;
 	ps->option = 0;
+	ps->is_time = 0;
 	return (ps);
 }

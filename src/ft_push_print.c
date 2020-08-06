@@ -6,7 +6,7 @@
 /*   By: slynell <slynell@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/25 14:42:03 by slynell           #+#    #+#             */
-/*   Updated: 2020/07/25 14:46:22 by slynell          ###   ########.fr       */
+/*   Updated: 2020/08/04 19:56:46 by slynell          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,11 @@ void	ft_push_print_meta(t_ps *ps)
 
 void	ft_push_print(char *str, char flag, t_ps *ps)
 {
+	if (ps->is_time == 1)
+	{
+		usleep(1000000);
+		ft_printf("\033[2J");
+	}
 	if (ps->option == 100)
 		return ;
 	if (ps->option == 1 || ps->option == 3)

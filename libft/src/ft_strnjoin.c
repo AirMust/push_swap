@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsub.c                                        :+:      :+:    :+:   */
+/*   ft_strnjoin.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: slynell <slynell@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/14 15:19:50 by slynell           #+#    #+#             */
-/*   Updated: 2020/08/06 13:38:01 by slynell          ###   ########.fr       */
+/*   Created: 2016/05/05 17:28:11 by smrabet           #+#    #+#             */
+/*   Updated: 2020/08/06 12:54:26 by slynell          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char				*ft_strsub(char const *s, unsigned int start, size_t len)
+char	*ft_strnjoin(char const *s1, char const *s2, size_t len)
 {
-	char			*sub;
-	size_t			i;
+	char	*ret;
 
-	sub = ft_strnew(len);
-	if (sub == NULL)
-		return (NULL);
-	i = 0;
-	while (s[i + start] != 0 && i < len)
+	ret = NULL;
+	if (s1 && s2)
 	{
-		sub[i] = s[i + start];
-		i++;
+		if ((ret = (char*)malloc(sizeof(char)
+		* ft_strlen(s1) + len + 1)) == NULL)
+			return (NULL);
+		ft_strcpy(ret, s1);
+		ft_strncat(ret, s2, len);
 	}
-	sub[i] = 0;
-	return (sub);
+	return (ret);
 }

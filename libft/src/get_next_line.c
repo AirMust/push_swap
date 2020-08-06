@@ -6,7 +6,7 @@
 /*   By: slynell <slynell@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/25 13:45:57 by slynell           #+#    #+#             */
-/*   Updated: 2020/07/25 13:51:46 by slynell          ###   ########.fr       */
+/*   Updated: 2020/08/06 13:34:39 by slynell          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static int		ft_parsing(char **s, char **line)
 	*line = ft_strsub(*s, 0, i);
 	tmp = *s;
 	*s = ft_strsub(*s, i + 1, ft_strlen(*s) - i);
-	free(tmp);
+	ft_strdel(&tmp);
 	return (1);
 }
 

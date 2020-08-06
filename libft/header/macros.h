@@ -6,7 +6,7 @@
 /*   By: slynell <slynell@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/25 14:34:45 by slynell           #+#    #+#             */
-/*   Updated: 2020/07/25 14:34:45 by slynell          ###   ########.fr       */
+/*   Updated: 2020/08/03 15:55:06 by slynell          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@
 */
 # define MIN(x, y) x < y ? x : y
 # define MAX(x, y) x > y ? x : y
-# define ABS(x) x >= 0 ? x : -x
+# define ABS(x) (x < 0 ? -x : x)
 # define SQUARE(x) x * x
 /*
 ** Conditionals
